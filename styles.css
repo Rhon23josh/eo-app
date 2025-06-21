@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: #edf2ff;
+  /* overflow: hidden; */
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "aside main main";
+  grid-template-columns: 0.5fr 7fr;
+  grid-template-rows: 0.5fr 4fr;
+  row-gap: 10px;
+}
+
+/* Navigation */
+
+header {
+  grid-area: header;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: yellow; */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+.nav-left h1 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #212529;
+}
+
+.nav-left input {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  width: 30rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo div {
+  height: 1px;
+  width: 15px;
+  border: 1px solid black;
+}
+
+.logo div:nth-of-type(2) {
+  width: 30px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 1rem;
+}
+
+.vertical {
+  width: 2px;
+  height: 30px;
+  background-color: #ced4da;
+}
+
+.nav-right img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.nav-right p {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.nav-right svg {
+  width: 25px;
+  cursor: pointer;
+}
+
+/* ASIDE */
+
+aside {
+  grid-area: aside;
+  /* background-color: red; */
+  max-width: 80px;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 0 0 15px;
+}
+
+aside svg:not(aside svg:nth-of-type(4)) {
+  width: 30px;
+}
+
+aside svg:nth-of-type(4) {
+  width: 40px;
+}
+
+.sides {
+  width: 370px;
+  height: 650px;
+  background-color: blue;
+}
+
+/* MAIN */
+
+main {
+  grid-area: main;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.hero {
+  width: 900px;
+  height: 650px;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+}
+
+.hero h2 {
+  font-size: 24px;
+}
+
+.hero-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-2 {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-2 .status {
+  display: flex;
+  gap: 30px;
+}
+
+.hero-2 .status > div {
+  text-align: center;
+}
+
+.hero-2 .status > div > span {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.hero-2 .status > div > p {
+  letter-spacing: 0.5px;
+}
+
+.hero-2 svg {
+  width: 25px;
+}
+
+.hero-2 .hero-button {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "project-1 project-2 project-3"
+    "project-4 project-5 project-6";
+  width: 100%;
+  height: 450px;
+  /* background-color: red; */
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.hero-3 > div {
+  border-radius: 20px;
+}
+
+.hero-3 .project-1 {
+  grid-area: project-1;
+  background-color: red;
+}
+
+.hero-3 .project-2 {
+  grid-area: project-2;
+  background-color: blue;
+}
+
+.hero-3 .project-3 {
+  grid-area: project-3;
+  background-color: green;
+}
+
+.hero-3 .project-4 {
+  grid-area: project-4;
+  background-color: indigo;
+}
+
+.hero-3 .project-5 {
+  grid-area: project-5;
+  background-color: maroon;
+}
+
+.hero-3 .project-6 {
+  grid-area: project-6;
+  background-color: yellow;
+}
