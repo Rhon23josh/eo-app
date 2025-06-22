@@ -7,19 +7,19 @@
 body {
   font-family: "Rubik", sans-serif;
   background-color: #edf2ff;
+  position: relative;
   /* overflow: hidden; */
 }
 
 .wrapper {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   display: grid;
   grid-template-areas:
-    "header header header"
-    "aside main main";
-  grid-template-columns: 0.5fr 7fr;
-  grid-template-rows: 0.5fr 4fr;
-  row-gap: 10px;
+    "header header"
+    "aside main";
+  grid-template-columns: minmax(80px, 100px) 1fr;
+  row-gap: 5rem;
 }
 
 /* Navigation */
@@ -38,24 +38,31 @@ header {
 }
 
 .nav-left {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 1.5rem;
   margin-right: auto;
   margin-left: 1rem;
 }
 
 .nav-left h1 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
+  /* width: 20%; */
+  min-width: 6rem;
+  white-space: nowrap;
   color: #212529;
+  flex-shrink: 0;
 }
 
 .nav-left input {
   font-family: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
-  width: 30rem;
+  width: 100%;
+  max-width: 500px;
+  /* margin-left: 3rem; */
   border-radius: 10px;
   border: none;
   outline: none;
@@ -70,13 +77,13 @@ header {
 }
 
 .logo div {
-  height: 1px;
-  width: 15px;
+  height: 0.1rem;
+  width: 0.8rem;
   border: 1px solid black;
 }
 
 .logo div:nth-of-type(2) {
-  width: 30px;
+  width: 1.8rem;
 }
 
 .nav-right {
@@ -87,20 +94,23 @@ header {
 }
 
 .vertical {
-  width: 2px;
-  height: 30px;
+  width: 0.15rem;
+  height: 2rem;
   background-color: #ced4da;
 }
 
 .nav-right img {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav-right p {
   font-family: inherit;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
+  white-space: nowrap;
 }
 
 .nav-right svg {
@@ -112,29 +122,21 @@ header {
 
 aside {
   grid-area: aside;
-  /* background-color: red; */
-  max-width: 80px;
-  max-height: 800px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  gap: 30px;
-  padding: 50px 0 0 15px;
+  gap: 2rem;
+  padding: 3.2rem 1rem;
 }
 
 aside svg:not(aside svg:nth-of-type(4)) {
   width: 30px;
+  cursor: pointer;
 }
 
 aside svg:nth-of-type(4) {
   width: 40px;
-}
-
-.sides {
-  width: 370px;
-  height: 650px;
-  background-color: blue;
+  cursor: pointer;
 }
 
 /* MAIN */
@@ -143,18 +145,24 @@ main {
   grid-area: main;
   width: 100%;
   display: flex;
-  gap: 10px;
+  justify-content: space-around;
+  gap: 1rem;
+  /* background-color: green; */
+  padding-right: 20px;
 }
 
 .hero {
-  width: 900px;
-  height: 650px;
+  width: 100%;
+  /* max-width: 1000px; */
+  /* height: 680px; */
   padding: 2rem 1.5rem;
   border-radius: 20px;
   border: none;
   outline: none;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   background-color: #fff;
+  /* position: absolute;
+  top: 100px; */
 }
 
 .hero h2 {
@@ -184,7 +192,7 @@ main {
 }
 
 .hero-2 .status > div > span {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -247,4 +255,78 @@ main {
 .hero-3 .project-6 {
   grid-area: project-6;
   background-color: yellow;
+}
+
+.sides {
+  width: 40%;
+  /* max-width: 400px; */
+  height: 680px;
+  background-color: blue;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  /* position: absolute;
+  top: 100px;
+  right: 20px;
+  left: 1010px; */
+}
+
+@media (max-width: 1120px) {
+  .hero-3 {
+    grid-template-areas:
+      "project-1 project-2"
+      "project-3 project-4"
+      "project-5 project-6";
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: repeat(3, 1fr); */
+  }
+  .hero-2 .status {
+    gap: 1.2rem;
+  }
+
+  .hero-2 .status > div > span {
+    font-size: 1.3rem;
+  }
+
+  .hero-2 .status > div > p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav-left h1 {
+    display: none;
+  }
+
+  .nav-right svg {
+    width: 20px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 800px) {
+  .sides {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    padding-left: 1.2rem;
+  }
+
+  aside {
+    display: none;
+  }
+
+  .logo {
+    display: none;
+  }
 }
